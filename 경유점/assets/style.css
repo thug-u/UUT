@@ -1,0 +1,303 @@
+/* 전역 스타일 */
+:root {
+    --primary-color: #e74c3c; /* Red */
+    --secondary-color: #27ae60; /* Green */
+    --background-color: #1c2331; /* Dark Gray */
+    --card-background: #263147; /* Slightly lighter Gray */
+    --text-color: #8d97ad; /* Light Gray */
+    --border-color: #374151; /* Gray-700 */
+    --terminal-bg: #1a1a1a; /* Black for terminal */
+    --terminal-text: #00ff00; /* Green for terminal */
+}
+
+/* 기본 스타일 초기화 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* 카드 컴포넌트 */
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: #2d3748;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* 폼 그룹 */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #2d3748;
+    border: 1px solid var(--border-color);
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+/* 슬라이더 값 표시 */
+.slider-value {
+    font-size: 0.75rem;
+    color: var(--text-color);
+    text-align: right;
+    margin-top: 0.25rem;
+}
+
+/* 터미널 스타일 */
+.terminal {
+    background-color: var(--terminal-bg);
+    color: var(--terminal-text);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.875rem;
+    padding: 0.625rem;
+    height: 9rem;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.terminal-line {
+    margin-bottom: 0.25rem;
+}
+
+/* 버튼 스타일 */
+.btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #2b6cb0;
+    border: 1px solid #2b6cb0;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* 상태 표시기 */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+}
+
+.status-online {
+    background-color: var(--secondary-color);
+}
+
+.status-warning {
+    background-color: #d97706;
+}
+
+.blink {
+    animation: blink-animation 1s infinite;
+}
+
+@keyframes blink-animation {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* 맵 컨테이너 */
+.map-container {
+    position: relative;
+    height: 24rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--card-background);
+}
+
+.map-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(38, 49, 71, 0.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(38, 49, 71, 0.5) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.tank-position {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.5s ease-in-out, top 0.5s ease-in-out;
+}
+
+.coordinate-display {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #ffffff;
+}
+
+/* 그래프 컨테이너 */
+.graph-container {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.graph-title {
+    font-size: 0.875rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+/* 통계 패널 */
+.stats-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.625rem;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0.25rem 0;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-color);
+}
+
+/* 섹션 제목 */
+.section-title {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-top: 1.25rem;
+    margin-bottom: 0.625rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 파라미터 리스트 */
+.parameters-list {
+    list-style: none;
+    margin-top: 0.625rem;
+    color: var(--text-color);
+}
+
+.parameters-list li {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .stats-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content,
+    .sidebar {
+        width: 100%;
+    }
+
+    .map-container {
+        height: 16rem;
+    }
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--card-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c0392b;
+}

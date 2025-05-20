@@ -1,0 +1,16 @@
+MOVE_STEP = 0.1
+TOLERANCE = 0.5
+LOOKAHEAD_MIN = 1.0
+LOOKAHEAD_MAX = 5.0
+GOAL_WEIGHT = 1.0
+OBSTACLE_RADIUS = 0.5
+SPEED_FACTOR = 0.3
+STEERING_SMOOTHING = 0.7
+HEADING_SMOOTHING = 0.8
+
+WEIGHT_FACTORS = {
+    "D": 0.4,  # 오른쪽
+    "A": 0.4,  # 왼쪽
+    "W": 0.5,  # 전진
+    "S": 0.2   # 후진
+}
