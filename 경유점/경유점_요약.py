@@ -17,7 +17,7 @@ class Navigation:
                     return position_result
             # print("지혁 내위치 좌표_str",position_str)    
             
-            # 적 위치 -- 위와 동시에 경로 짜기기 
+            # 적 위치 -- 위와 동시에 경로 짜기
             if "enemyPos" in data and isinstance(data["enemyPos"], dict):
                 self.enemyPos = (
                     data["enemyPos"]["x"],
@@ -25,10 +25,6 @@ class Navigation:
                     data["enemyPos"]["z"]
                 )
             # print('~적좌표 ~ 적좌표 ~',data["enemyPos"]["x"], data["enemyPos"]["z"])
-
-            #  플레이어 터렛 방향 __ 안쓸꺼라 일단 없애놓음음
-            # if "player_turret_x" in data:
-            #     self.player_turret_x = data["player_turret_x"]
 
             # 적 터렛 방향 - 어짜피 못움직이니 이걸걸 방향이라 간주했음음
             if "enemyTurretX" in data:
@@ -52,6 +48,12 @@ class Navigation:
             x1 = data['playerPos']['x']
             z1 = data['playerPos']['z']
             # print(f"[DEBUG4] 플레이어 위치: x1 = {x1}, z1 = {z1}")
+
+            # 4-1. 상대 시야에 있는지~
+            if dx*(x0-x1) + dz*(z0-z1) > 0:
+                print("🟢 뒤치 가능")
+            else:
+                print("🔴 위험해")
 
             # 5. 수선의 발 : 최단거리로 가기위한 경유점
             denominator = dx**2 + dz**2
